@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const LinkPreviewGenerator = require('link-preview-generator')
-let PORT = 8000
+require('dotenv').config()
 
 app.use(cors())
 app.use('/assets', express.static('assets'));
@@ -17,6 +17,6 @@ app.get('/api/:link', async (req,res) => {
     res.json(preview)
 })
 
-app.listen(PORT, (req,res) => {
+app.listen(process.env.PORT || 8000, (req,res) => {
     console.log('server is running')
 })
