@@ -4,8 +4,7 @@ const app = express()
 const LinkPreviewGenerator = require('link-preview-generator')
 require('dotenv').config()
 
-app.use(cors())
-app.use('/assets', express.static('assets'));
+// app.use(cors())
 app.use(express.static('public'))
 
 app.get('/', (req,res) => {
