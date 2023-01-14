@@ -13,7 +13,7 @@ app.get('/', (req,res) => {
 
 app.get('/api/:link', async (req,res) => {
     const preview = await LinkPreviewGenerator(req.params.link)
-    res.send(preview)
+    res.json(preview)
 })
 
 app.listen(process.env.PORT || 8000, (req,res) => {
