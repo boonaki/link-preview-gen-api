@@ -20,7 +20,7 @@ app.get('/', (req,res) => {
 app.get('/api/link', async (req,res) => {
     try{
         const preview = await LinkPreviewGenerator('https://boonaki.me')
-
+        console.log(preview)
         const response = {
             statusCode: 200,
             headers: {
