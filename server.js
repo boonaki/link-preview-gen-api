@@ -17,10 +17,24 @@ app.get('/', (req,res) => {
     res.sendFile('/index.html')
 })
 
-app.get('/:link', async (req,res) => {
-    const preview = await LinkPreviewGenerator(req.params.link)
-    res.json(preview)
+app.get('/api/link', async (req,res) => {
+    try{
+        const preview = await LinkPreviewGenerator('https://boonaki.me')
 
+        const response = {
+            statusCode: 200,
+            headers: {
+              'Access-Control-Allow-Origin': 'https://link-preview-gen-api.up.railway.app', // <-- Add your specific origin here
+              'Access-Control-Allow-Credentials': true,
+            },
+            body: JSON.stringify({
+              preview: preview
+            }),
+        };
+        res.json(response)
+    }catch(err){
+        console.log(err)
+    }
 })
 
 app.listen(process.env.PORT || 8000, (req,res) => {
