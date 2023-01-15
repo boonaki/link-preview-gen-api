@@ -11,8 +11,8 @@ app.get('/', (req,res) => {
     res.sendFile(__dirname + '/public/index.html')
 })
 
-app.get('/api/:link', (req,res) => {
-    const preview = LinkPreviewGenerator(req.params.link)
+app.get('/api/:link', async (req,res) => {
+    const preview = await LinkPreviewGenerator(req.params.link)
     res.json(preview)
 })
 
