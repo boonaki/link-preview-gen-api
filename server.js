@@ -8,6 +8,7 @@ app.use(cors())
 app.use(express.static('public'))
 
 app.use(function (req, res, next) {
+
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
@@ -17,7 +18,7 @@ app.get('/', (req,res) => {
     res.sendFile('/index.html')
 })
 
-app.get('/api/:link', async (req,res) => {
+app.get('/:link', async (req,res) => {
     const preview = await LinkPreviewGenerator(req.params.link)
     res.json(preview)
 })
