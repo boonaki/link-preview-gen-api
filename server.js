@@ -24,7 +24,7 @@ app.get('/api/link', async (req,res) => {
         const response = {
             statusCode: 200,
             headers: {
-              'Access-Control-Allow-Origin': 'https://link-preview-gen-api.up.railway.app', // <-- Add your specific origin here
+              'Access-Control-Allow-Origin': '*', // <-- Add your specific origin here
               'Access-Control-Allow-Credentials': true,
             },
             body: JSON.stringify({
