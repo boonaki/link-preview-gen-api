@@ -21,17 +21,17 @@ app.get('/api/link', async (req,res) => {
     try{
         const preview = await LinkPreviewGenerator('https://boonaki.me')
         console.log(preview)
-        const response = {
-            statusCode: 200,
-            headers: {
-              'Access-Control-Allow-Origin': '*', // <-- Add your specific origin here
-              'Access-Control-Allow-Credentials': true,
-            },
-            body: JSON.stringify({
-              preview: preview
-            }),
-        };
-        res.json(response)
+        // const response = {
+        //     statusCode: 200,
+        //     headers: {
+        //       'Access-Control-Allow-Origin': '*', // <-- Add your specific origin here
+        //       'Access-Control-Allow-Credentials': true,
+        //     },
+        //     body: JSON.stringify({
+        //       preview: preview
+        //     }),
+        // };
+        res.json(preview)
     }catch(err){
         console.log(err)
         res.redirect('/')
